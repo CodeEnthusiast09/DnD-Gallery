@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Full-width input fields */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 6px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: black;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 20px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+.terms {
+  background-color: transparent;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+  /* width: 30%; */
+  margin: auto;
+  border: 1px dotted black;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.error-message {
+  color: red;
+  font-style: italic;
+  margin: auto;
+  padding: 5px 10px;
+  width: 50%;
+}
+
+/* Change styles for signup button on smaller screens */
+@media screen and (max-width: 480px) {
+  button {
+    width: 50%;
+  }
+  .error-message {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  button {
+    width: 40%;
+  }
+}
