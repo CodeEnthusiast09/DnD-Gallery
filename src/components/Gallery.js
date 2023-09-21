@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from "react-dnd-touch-backend";
 import ImageCard from "./ImageCard"; // Import the ImageCard component
 import SkeletonLoader from "./SkeletonLoader";
 import { Link } from "react-router-dom";
 
-function Gallery() {
+const isTouchDevice = () => {
+  if ("ontouchstart" in window) {
+    return true;
+  }
+  return false;
+};
+
+function Gallery({
+  backendForDND = isTouchDevice() ? TouchBackend : HTML5Backend,
+}) {
   const [images, setImages] = useState([]);
   const [searchImages, setSearchImages] = useState([]); // Separate state for search results
   const [query, setQuery] = useState(""); // Initialize the query state
@@ -132,7 +142,7 @@ function Gallery() {
         </div>
       ) : (
         // Render the gallery when loading is false
-        <DndProvider backend={HTML5Backend}>
+        <DndProvider backend={backendForDND}>
           <div id="image-gallery">
             {(searchImages.length > 0 ? searchImages : images).map(
               (image, index) => (
